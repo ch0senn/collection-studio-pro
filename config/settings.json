@@ -1,1 +1,7 @@
 
+{
+  "image_size": "1024x1024",
+  "background": "summer sky",
+  "output_folder": "output",
+  "image_format": "png"
+}
