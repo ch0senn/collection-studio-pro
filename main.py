@@ -1,11 +1,8 @@
-
 import os
-from pathlib import Path
 
 from dotenv import load_dotenv
 
-from app.api.openai_client import OpenAIImageClient
-from app.core.prompt_builder import PromptBuilder
+from app.core.collection_generator import CollectionGenerator
 
 
 def main():
@@ -15,24 +12,18 @@ def main():
     api_key = os.getenv("OPENAI_API_KEY")
 
     if not api_key:
-        raise RuntimeError("OPENAI_API_KEY not found")
 
-    prompt = PromptBuilder().robot_portrait(
-        robot="Friendly white ceramic service robot with glowing blue LED eyes",
-        hairstyle="Mohawk",
-    )
+        raise RuntimeError(
 
-    client = OpenAIImageClient(api_key)
+            "OPENAI_API_KEY missing.\nCreate a .env file first."
 
-    output = Path("output") / "001.png"
+        )
 
-    client.generate(
-        prompt=prompt,
-        output_file=output,
-    )
+    generator = CollectionGenerator(api_key)
 
-    print(f"Saved {output}")
+    generator.generate_one()
 
 
 if __name__ == "__main__":
+
     main()
