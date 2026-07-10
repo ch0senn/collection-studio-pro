@@ -1,42 +1,70 @@
+from dataclasses import dataclass
+
+
+@dataclass
+class RobotPrompt:
+
+    name: str
+
+    hairstyle: str
+
+    background: str = "Bright summer blue sky with soft white clouds"
+
+    pose: str = "Three-quarter view, turned slightly to the left"
+
+    style: str = "High-quality stylized 3D render"
+
+    expression: str = "Friendly"
+
+    composition: str = "Head and shoulders portrait"
+
 
 class PromptBuilder:
-    """
-    Builds prompts for Collection Studio Pro.
-    """
 
-    def robot_portrait(
-        self,
-        robot: str,
-        hairstyle: str,
-    ) -> str:
+    def build(self, robot: RobotPrompt) -> str:
 
         return f"""
-Create a high-quality stylized 3D robot portrait.
+Create a unique robot portrait.
 
-Robot:
-{robot}
+Character:
+{robot.name}
 
 Pose:
-Three-quarter view, turned slightly to the left.
+{robot.pose}
 
 Composition:
-Head and shoulders only.
+{robot.composition}
+
+Expression:
+{robot.expression}
 
 Background:
-Bright summer sky with soft white clouds.
+{robot.background}
 
 Lighting:
 Natural daylight.
 
-Expression:
-Friendly.
+Render Style:
+{robot.style}
 
-Hairstyle:
-{hairstyle}
+Hair Style:
+{robot.hairstyle}
 
-The robot identity must remain consistent.
+Requirements:
+
+The robot must be unique.
+
+The robot must not face directly towards the camera.
+
+The robot should be turned approximately 20 degrees to the left.
+
+Maintain the same robot identity throughout the image.
 
 No text.
 
+No logos.
+
 No watermark.
+
+Square composition.
 """.strip()
