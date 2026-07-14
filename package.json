@@ -1,0 +1,16 @@
+{
+  "name": "collection-studio-pro",
+  "productName": "Collection Studio Pro",
+  "version": "0.3.0",
+  "description": "Professional desktop application for creating and managing AI image collections.",
+  "author": "Michael Cornan",
+  "license": "MIT",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^37.2.0"
+  }
+}
