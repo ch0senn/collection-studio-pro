@@ -1,2 +1,2 @@
 # collection-studio-pro
-NFT collection generator
+COLLECTION-STUDIO-PRO is a collection generaator.
